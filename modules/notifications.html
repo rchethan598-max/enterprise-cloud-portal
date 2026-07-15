@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Incident Alert Dispatch - CloudOps</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    /* Component alerts scoped under constraints - Specificity: 0-1-0 */
+    .c-alert {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      padding: var(--space-4);
+      border-inline-start: 4px solid var(--color-brand);
+      background-color: var(--bg-surface);
+      border-radius: var(--radius-2);
+      box-shadow: var(--elevation-1);
+      margin-block-end: var(--space-3);
+
+      &.variant-danger {
+        border-inline-start-color: var(--color-danger);
+        background-color: color-mix(in srgb, var(--color-danger) 5%, var(--bg-surface));
+      }
+
+      &.variant-success {
+        border-inline-start-color: var(--color-success);
+        background-color: color-mix(in srgb, var(--color-success) 5%, var(--bg-surface));
+      }
+    }
+    
+    .c-alert__meta {
+      font-size: var(--text-step-1);
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="l-app-shell">
+    <!-- Navigation Sidebar -->
+    <aside class="c-sidebar">
+      <div class="c-sidebar__logo">CloudOps</div>
+      <nav class="c-sidebar__nav">
+        <a href="../index.html" class="c-sidebar__link">Dashboard</a>
+        <a href="analytics.html" class="c-sidebar__link">Analytics Engine</a>
+        <a href="notifications.html" class="c-sidebar__link is-active">Alert Dispatch</a>
+      </nav>
+    </aside>
+
+    <!-- Main Workspace Content -->
+    <main class="l-main-viewport">
+      <h2>Live System Notifications & Signals</h2>
+      
+      <div style="margin-block-start: var(--space-2);">
+        <!-- Critical Incident Notification -->
+        <article class="c-alert variant-danger" role="alert">
+          <span class="c-alert__meta">CRITICAL • 12:22 UTC</span>
+          <h4>Node Latency Spike Detected</h4>
+          <p>Cluster <code>eu-west-ingress</code> reports processing delays above the 250ms SLA baseline threshold[cite: 1].</p>
+        </article>
+
+        <!-- Success Event Notification -->
+        <article class="c-alert variant-success" role="status">
+          <span class="c-alert__meta">RESOLVED • 11:45 UTC</span>
+          <h4>Automated Secret Rotation Complete</h4>
+          <p>Global security tokens successfully provisioned across 48 edge nodes[cite: 1].</p>
+        </article>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Management - CloudOps</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="l-app-shell">
+    <aside class="c-sidebar">
+      <div class="c-sidebar__logo">CloudOps</div>
+      <nav class="c-sidebar__nav">
+        <a href="../index.html" class="c-sidebar__link">Dashboard</a>
+        <a href="auth.html" class="c-sidebar__link">Auth Portal</a>
+        <a href="billing.html" class="c-sidebar__link is-active">Billing</a>
+      </nav>
+    </aside>
+
+    <main class="l-main-viewport">
+      <h2>Billing & Usage</h2>
+      
+      <!-- Interactive Pure-CSS Tab Component -->
+      <div class="c-tabs">
+        <input type="radio" name="billing-tabs" id="tab-1" checked class="u-visually-hidden">
+        <input type="radio" name="billing-tabs" id="tab-2" class="u-visually-hidden">
+
+        <div class="c-tabs__nav" role="tablist">
+          <label for="tab-1" class="c-tabs__trigger" role="tab">Active Subscriptions</label>
+          <label for="tab-2" class="c-tabs__trigger" role="tab">Invoice Logs</label>
+        </div>
+
+        <div class="c-tabs__panel" data-panel="1">
+          <div class="c-table-container">
+            <table class="c-table">
+              <thead>
+                <tr>
+                  <th>Resource Cluster</th>
+                  <th>Current Run Rate</th>
+                  <th>SLA Commitment</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>k8s-us-east-cluster</td>
+                  <td>$1,240 / mo</td>
+                  <td>99.99%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="c-tabs__panel" data-panel="2">
+          <p style="color: var(--text-secondary); padding: var(--space-4);">No historical billing queries logged on current session.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

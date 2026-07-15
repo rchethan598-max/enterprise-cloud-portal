@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Anomaly Detected - CloudOps</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    .c-error-container {
+      max-inline-size: 50ch;
+      margin: var(--space-12) auto;
+      text-align: center;
+      background: var(--bg-surface);
+      padding: var(--space-6);
+      border-radius: var(--radius-4);
+      border: 1px solid var(--border-subtle);
+    }
+  </style>
+</head>
+<body>
+  <main class="c-error-container">
+    <h1 style="color: var(--color-danger); font-size: var(--text-step-10);">503</h1>
+    <h2>Service Anomaly Detected</h2>
+    <p style="color: var(--text-secondary); margin-block: var(--space-4);">
+      The target infrastructure portal node failed its automated health check loop.
+    </p>
+    <a href="../index.html" class="c-sidebar__link" style="display: inline-block; background: var(--color-brand); color: #fff;">
+      Return to Operations Bridge
+    </a>
+  </main>
+</body>
+</html>

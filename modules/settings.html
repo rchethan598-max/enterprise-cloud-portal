@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Settings - CloudOps</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    /* Styling settings selections clearly */
+    .c-settings-group {
+      background: var(--bg-surface);
+      padding: var(--space-4);
+      border-radius: var(--radius-3);
+      border: 1px solid var(--border-subtle);
+    }
+  </style>
+</head>
+<body>
+  <div class="l-app-shell">
+    <aside class="c-sidebar">
+      <div class="c-sidebar__logo">CloudOps</div>
+      <nav class="c-sidebar__nav">
+        <a href="../index.html" class="c-sidebar__link">Dashboard</a>
+        <a href="billing.html" class="c-sidebar__link">Billing</a>
+        <a href="settings.html" class="c-sidebar__link is-active">Settings</a>
+      </nav>
+    </aside>
+
+    <main class="l-main-viewport">
+      <h2>Portal Configurations</h2>
+
+      <div class="c-settings-group">
+        <h3>Design System Modification Controls</h3>
+        <p style="color: var(--text-secondary); margin-block-end: var(--space-4);">Test responsive layout engines dynamically.</p>
+        
+        <!-- Accordion implementation in configurations block -->
+        <div class="c-accordion">
+          <div class="c-accordion__item">
+            <input type="checkbox" id="sett-acc" class="u-visually-hidden">
+            <label for="sett-acc" class="c-accordion__trigger">
+              <span>Performance and Styling Modifiers</span>
+              <span>▼</span>
+            </label>
+            <div class="c-accordion__content">
+              <p style="padding: var(--space-4); line-height: 1.6;">
+                The platform is governed by global design variables like <code>--density-modifier</code> and <code>--spacing-scale-modifier</code>. 
+                To implement compact density mode, change the token to <code>0.7</code>. To convert to sharp corners, change the border radius token scale to <code>0</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

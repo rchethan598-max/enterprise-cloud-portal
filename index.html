@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CloudOps Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  
+  <div class="l-app-shell">
+    <!-- Sidebar -->
+    <aside class="c-sidebar">
+      <div class="c-sidebar__logo">CloudOps</div>
+      <nav class="c-sidebar__nav">
+        <a href="index.html" class="c-sidebar__link is-active">
+          <svg style="inline-size: 1.5rem; block-size: 1.5rem;"><use href="assets/icons.svg#icon-dashboard"></use></svg>
+          Dashboard
+        </a>
+        <a href="modules/auth.html" class="c-sidebar__link">Auth Portal</a>
+        <a href="modules/billing.html" class="c-sidebar__link">Billing</a>
+        <a href="modules/settings.html" class="c-sidebar__link">
+          <svg style="inline-size: 1.5rem; block-size: 1.5rem;"><use href="assets/icons.svg#icon-settings"></use></svg>
+          Settings
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Viewport -->
+    <main class="l-main-viewport">
+      <header style="display: flex; justify-content: space-between; align-items: center;">
+        <h1>Operations Dashboard</h1>
+        <label for="modal-control" class="c-sidebar__link" style="cursor: pointer; background: var(--color-brand); color: #fff;">Trigger Modal</label>
+      </header>
+
+      <div class="l-dashboard-grid">
+        <!-- Live System Logs -->
+        <section class="u-grid-span-8" style="background: var(--bg-surface); padding: var(--space-4); border-radius: var(--radius-3);">
+          <h2>Core System Status</h2>
+          <div class="c-table-container">
+            <table class="c-table">
+              <thead>
+                <tr>
+                  <th>Environment</th>
+                  <th>Region</th>
+                  <th>Operational Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Production</td>
+                  <td>us-east-1</td>
+                  <td style="color: var(--color-success); font-weight: 700;">Healthy</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Command Terminal Module -->
+        <section class="u-grid-span-4 c-terminal">
+          <p>~ $ cloudops-cli status</p>
+          <p>[OK] All clusters operational</p>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Pure CSS Modal Mounting Structure -->
+  <input type="checkbox" id="modal-control" class="u-visually-hidden">
+  <div class="c-modal-overlay" role="dialog" aria-modal="true">
+    <div class="c-modal-card">
+      <h2>Modal Activated</h2>
+      <p style="margin-block: var(--space-4);">This overlay works entirely without Javascript.</p>
+      <label for="modal-control" style="cursor: pointer; padding: var(--space-2) var(--space-4); background: var(--color-danger); color: #fff; border-radius: var(--radius-2);">Close Dialog</label>
+    </div>
+  </div>
+
+</body>
+</html>

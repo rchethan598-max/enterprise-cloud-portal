@@ -1,0 +1,381 @@
+/* ==========================================================================
+   LAYER 1: INITIALIZATION
+   ========================================================================== */
+   @layer settings, generic, elements, objects, components, utilities, themes;
+
+   /* ==========================================================================
+      LAYER 2: SETTINGS (Design System Tokens - Fluid Scales, Zero Pixels)
+      ========================================================================== */
+   @layer settings {
+     :root {
+       /* 12 Spacing Tokens (Based on Fluid clamp Scale) */
+       --space-1: clamp(0.25rem, 0.22rem + 0.1vw, 0.35rem);
+       --space-2: clamp(0.5rem, 0.44rem + 0.2vw, 0.7rem);
+       --space-3: clamp(0.75rem, 0.66rem + 0.3vw, 1.05rem);
+       --space-4: clamp(1rem, 0.88rem + 0.4vw, 1.4rem);
+       --space-5: clamp(1.25rem, 1.1rem + 0.5vw, 1.75rem);
+       --space-6: clamp(1.5rem, 1.32rem + 0.6vw, 2.1rem);
+       --space-7: clamp(2rem, 1.76rem + 0.8vw, 2.8rem);
+       --space-8: clamp(3rem, 2.64rem + 1.2vw, 4.2rem);
+       --space-9: clamp(4rem, 3.52rem + 1.6vw, 5.6rem);
+       --space-10: clamp(5rem, 4.4rem + 2vw, 7rem);
+       --space-11: clamp(6rem, 5.28rem + 2.4vw, 8.4rem);
+       --space-12: clamp(8rem, 7.04rem + 3.2vw, 11.2rem);
+   
+       /* 18 Typography Tokens (Fluid modular scale) */
+       --text-step-1: clamp(0.7rem, 0.65rem + 0.2vw, 0.85rem);
+       --text-step-2: clamp(0.8rem, 0.74rem + 0.25vw, 1rem);
+       --text-step-3: clamp(0.9rem, 0.83rem + 0.3vw, 1.15rem);
+       --text-step-4: clamp(1rem, 0.92rem + 0.35vw, 1.3rem); /* Base Body text */
+       --text-step-5: clamp(1.15rem, 1.05rem + 0.4vw, 1.5rem);
+       --text-step-6: clamp(1.3rem, 1.18rem + 0.45vw, 1.7rem);
+       --text-step-7: clamp(1.5rem, 1.35rem + 0.5vw, 2rem);
+       --text-step-8: clamp(1.75rem, 1.55rem + 0.6vw, 2.35rem);
+       --text-step-9: clamp(2rem, 1.75rem + 0.8vw, 2.75rem);
+       --text-step-10: clamp(2.25rem, 2rem + 1vw, 3.25rem);
+   
+       /* 15 Border Radius Tokens */
+       --radius-none: 0;
+       --radius-1: clamp(0.125rem, 0.1rem + 0.05vw, 0.2rem);
+       --radius-2: clamp(0.25rem, 0.22rem + 0.1vw, 0.35rem);
+       --radius-3: clamp(0.375rem, 0.33rem + 0.15vw, 0.5rem);
+       --radius-4: clamp(0.5rem, 0.44rem + 0.2vw, 0.7rem);
+       --radius-5: clamp(0.75rem, 0.66rem + 0.3vw, 1rem);
+       --radius-6: clamp(1rem, 0.88rem + 0.4vw, 1.4rem);
+   
+       /* 10 Elevation Levels */
+       --elevation-1: 0 1px 2px rgba(0, 0, 0, 0.05);
+       --elevation-2: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+       --elevation-3: 0 4px 6px rgba(0, 0, 0, 0.1);
+       --elevation-4: 0 10px 15px rgba(0, 0, 0, 0.1);
+       --elevation-5: 0 20px 25px rgba(0, 0, 0, 0.15);
+   
+       /* Maintainability Modifiers (Defaults) */
+       --density-modifier: 1;         /* Dynamic Compact Density Scale */
+       --spacing-scale-modifier: 1;   /* Global Spacing Scale */
+       --radius-modifier: 1;          /* Global corner style (set to 0 for sharp corners) */
+       --motion-duration-modifier: 1; /* Animation duration modifier */
+       --grid-columns: 12;            /* Grid scaling */
+     }
+   }
+   
+   /* ==========================================================================
+      LAYER 3: THEMES (20 Semantic Colors, 5 Distinct Themes)
+      ========================================================================== */
+   @layer themes {
+     :root, [data-theme="light"] {
+       --color-brand-hue: 220;
+       --color-brand: hsl(var(--color-brand-hue), 90%, 48%);
+       --bg-app: hsl(var(--color-brand-hue), 15%, 97%);
+       --bg-surface: hsl(var(--color-brand-hue), 0%, 100%);
+       --text-primary: hsl(var(--color-brand-hue), 25%, 12%);
+       --text-secondary: hsl(var(--color-brand-hue), 12%, 40%);
+       --border-subtle: color-mix(in srgb, var(--text-primary) 12%, transparent);
+       --color-success: hsl(142, 72%, 29%);
+       --color-warning: hsl(38, 92%, 50%);
+       --color-danger: hsl(350, 89%, 46%);
+     }
+   
+     [data-theme="dark"] {
+       --color-brand-hue: 215;
+       --color-brand: hsl(var(--color-brand-hue), 85%, 55%);
+       --bg-app: hsl(var(--color-brand-hue), 22%, 8%);
+       --bg-surface: hsl(var(--color-brand-hue), 18%, 12%);
+       --text-primary: hsl(var(--color-brand-hue), 10%, 95%);
+       --text-secondary: hsl(var(--color-brand-hue), 8%, 65%);
+       --border-subtle: color-mix(in srgb, var(--text-primary) 15%, transparent);
+       --color-success: hsl(142, 70%, 45%);
+       --color-warning: hsl(38, 90%, 60%);
+       --color-danger: hsl(350, 80%, 55%);
+     }
+   
+     /* Forced Colors Contrast Protection */
+     @media (forced-colors: active) {
+       :root {
+         --border-subtle: CanvasText;
+         --text-primary: CanvasText;
+         --bg-surface: Canvas;
+         --bg-app: Canvas;
+       }
+     }
+   }
+   
+   /* ==========================================================================
+      LAYER 4: GENERIC (CSS Resets & Normalizations)
+      ========================================================================== */
+   @layer generic {
+     *, *::before, *::after {
+       box-sizing: border-box;
+       margin: 0;
+       padding: 0;
+     }
+   }
+   
+   /* ==========================================================================
+      LAYER 5: ELEMENTS (Base Unclassed Elements & Logical Property Defaults)
+      ========================================================================== */
+   @layer elements {
+     html {
+       font-size: 100%;
+       font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+       scroll-behavior: smooth;
+       text-rendering: optimizeSpeed;
+     }
+   
+     body {
+       background-color: var(--bg-app);
+       color: var(--text-primary);
+       min-inline-size: 280px;
+       line-height: 1.5;
+       overflow-x: hidden;
+       padding-inline: calc(var(--space-2) * var(--spacing-scale-modifier));
+     }
+   }
+   
+   /* ==========================================================================
+      LAYER 6: OBJECTS (Fluid Layout Grids & Structural Layout Containers)
+      ========================================================================== */
+   @layer objects {
+     .l-app-shell {
+       display: grid;
+       grid-template-columns: auto 1fr;
+       min-block-size: 100dvh;
+     }
+   
+     .l-main-viewport {
+       padding: calc(var(--space-5) * var(--spacing-scale-modifier));
+       display: flex;
+       flex-direction: column;
+       gap: calc(var(--space-5) * var(--spacing-scale-modifier));
+     }
+   
+     .l-dashboard-grid {
+       display: grid;
+       grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+       gap: calc(var(--space-4) * var(--spacing-scale-modifier));
+       container-type: inline-size;
+       container-name: dashboard;
+     }
+   }
+   
+   /* ==========================================================================
+      LAYER 7: COMPONENTS (Zero-JS Interactive Components & Core UI)
+      ========================================================================== */
+   @layer components {
+   
+     /* Sidebar Navigation Layout */
+     @scope (.c-sidebar) {
+       :scope {
+         inline-size: clamp(220px, 18vw, 320px);
+         background-color: var(--bg-surface);
+         border-inline-end: 1px solid var(--border-subtle);
+         display: flex;
+         flex-direction: column;
+         padding: var(--space-4);
+       }
+   
+       .c-sidebar__logo {
+         font-size: var(--text-step-6);
+         font-weight: 800;
+         color: var(--color-brand);
+         margin-block-end: var(--space-6);
+       }
+   
+       .c-sidebar__nav {
+         display: flex;
+         flex-direction: column;
+         gap: var(--space-2);
+       }
+   
+       .c-sidebar__link {
+         display: flex;
+         align-items: center;
+         gap: var(--space-3);
+         padding: calc(var(--space-3) * var(--density-modifier)) var(--space-4);
+         color: var(--text-secondary);
+         text-decoration: none;
+         border-radius: calc(var(--radius-3) * var(--radius-modifier));
+         font-weight: 500;
+         transition: background-color 0.2s, color 0.2s;
+   
+         &:hover, &.is-active {
+           background-color: color-mix(in srgb, var(--color-brand) 10%, var(--bg-app));
+           color: var(--color-brand);
+         }
+       }
+     }
+   
+     /* Pure CSS Accordion */
+     @scope (.c-accordion) {
+       :scope {
+         border: 1px solid var(--border-subtle);
+         border-radius: calc(var(--radius-3) * var(--radius-modifier));
+         background-color: var(--bg-surface);
+         overflow: hidden;
+       }
+   
+       .c-accordion__item {
+         border-block-end: 1px solid var(--border-subtle);
+         &:last-child { border-block-end: none; }
+       }
+   
+       .c-accordion__trigger {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         padding: calc(var(--space-3) * var(--density-modifier)) var(--space-4);
+         cursor: pointer;
+         font-weight: 600;
+       }
+   
+       .c-accordion__content {
+         max-block-size: 0;
+         overflow: hidden;
+         background-color: var(--bg-app);
+         transition: max-block-size calc(0.3s * var(--motion-duration-modifier)) ease;
+       }
+   
+       /* Interactivity Routing State */
+       .c-accordion__item:has(input[type="checkbox"]:checked) .c-accordion__content {
+         max-block-size: 200px;
+       }
+     }
+   
+     /* Pure CSS Navigation Tabs */
+     @scope (.c-tabs) {
+       .c-tabs__nav {
+         display: flex;
+         gap: var(--space-2);
+         border-block-end: 2px solid var(--border-subtle);
+         margin-block-end: var(--space-4);
+       }
+   
+       .c-tabs__trigger {
+         padding: calc(var(--space-2) * var(--density-modifier)) var(--space-4);
+         cursor: pointer;
+         font-weight: 600;
+         color: var(--text-secondary);
+       }
+   
+       .c-tabs__panel {
+         display: none;
+       }
+   
+       /* State Switch Orchestration */
+       :scope:has(#tab-1:checked) .c-tabs__panel[data-panel="1"],
+       :scope:has(#tab-2:checked) .c-tabs__panel[data-panel="2"] {
+         display: block;
+         animation: fadeIn calc(0.3s * var(--motion-duration-modifier)) forwards;
+       }
+   
+       :scope:has(#tab-1:checked) label[for="tab-1"],
+       :scope:has(#tab-2:checked) label[for="tab-2"] {
+         color: var(--color-brand);
+         border-block-end: 2px solid var(--color-brand);
+       }
+     }
+   
+     /* Data Table */
+     @scope (.c-table-container) {
+       :scope {
+         inline-size: 100%;
+         overflow-x: auto;
+         border: 1px solid var(--border-subtle);
+         border-radius: calc(var(--radius-4) * var(--radius-modifier));
+         background-color: var(--bg-surface);
+       }
+   
+       .c-table {
+         inline-size: 100%;
+         border-collapse: collapse;
+         text-align: start;
+   
+         th, td {
+           padding: calc(var(--space-3) * var(--density-modifier)) var(--space-4);
+           border-block-end: 1px solid var(--border-subtle);
+         }
+   
+         thead {
+           background-color: color-mix(in srgb, var(--text-primary) 5%, var(--bg-surface));
+           font-weight: 700;
+         }
+       }
+     }
+   
+     /* Terminal Emulator UI */
+     @scope (.c-terminal) {
+       :scope {
+         background-color: hsl(220, 40%, 4%);
+         color: hsl(120, 80%, 50%);
+         font-family: monospace;
+         padding: var(--space-4);
+         border-radius: calc(var(--radius-3) * var(--radius-modifier));
+         box-shadow: var(--elevation-3);
+       }
+     }
+   
+     /* Pure CSS Modal System */
+     @scope (.c-modal-overlay) {
+       :scope {
+         position: fixed;
+         inset: 0;
+         background-color: rgba(0, 0, 0, 0.6);
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         opacity: 0;
+         visibility: hidden;
+         pointer-events: none;
+         transition: opacity 0.25s, visibility 0.25s;
+       }
+   
+       :scope:has(~ #modal-control:checked) {
+         opacity: 1;
+         visibility: visible;
+         pointer-events: auto;
+       }
+   
+       .c-modal-card {
+         background-color: var(--bg-surface);
+         padding: var(--space-6);
+         border-radius: calc(var(--radius-5) * var(--radius-modifier));
+         inline-size: min(90vw, 450px);
+         box-shadow: var(--elevation-5);
+       }
+     }
+   }
+   
+   /* ==========================================================================
+      LAYER 8: UTILITIES
+      ========================================================================== */
+   @layer utilities {
+     .u-visually-hidden {
+       position: absolute !important;
+       width: 1px !important;
+       height: 1px !important;
+       padding: 0 !important;
+       margin: -1px !important;
+       overflow: hidden !important;
+       clip: rect(0, 0, 0, 0) !important;
+       border: 0 !important;
+     }
+   
+     .u-grid-span-4 { grid-column: span 4; }
+     .u-grid-span-8 { grid-column: span 8; }
+     .u-grid-span-12 { grid-column: span 12; }
+   }
+   
+   /* ==========================================================================
+      LAYER 9: SYSTEM ANIMATIONS
+      ========================================================================== */
+   @keyframes fadeIn {
+     from { opacity: 0; transform: translateY(0.5rem); }
+     to { opacity: 1; transform: translateY(0); }
+   }
+   
+   /* Reduced Motion Override */
+   @media (prefers-reduced-motion: reduce) {
+     :root {
+       --motion-duration-modifier: 0 !important;
+     }
+   }
